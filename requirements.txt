@@ -1,5 +1,5 @@
-python-dotenv>=1.*
-structlog>=24.*
-google-cloud-logging>=3.*
-python-json-logger>=2.*
-structlog-gcp>=0.*
+python-dotenv==1.*
+structlog==24.*
+google-cloud-logging==3.*
+python-json-logger==2.*
+structlog-gcp==0.*
