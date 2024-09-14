@@ -3,20 +3,14 @@ from dotenv import load_dotenv
 from functools import wraps
 import time
 
-# Local libraries 
-if __name__ == "__main__" or 'shared_utils.' not in __name__:
-    # When the script is run directly, use absolute import
-    from set_structlog_configs import get_logger
-else:
-    # When the script is imported as a module, use relative import
-    from shared_utils.set_structlog_configs import get_logger
+from set_structlog_configs import get_logger
 
 # ==============================================================================
 # Set variables and authenticate
 # ==============================================================================
 
 load_dotenv()
-ENV = os.getenv("ENV", "prod")  # Default to 'prod' if not set
+ENV = os.getenv("ENV", "dev")  # Default to 'dev' if not set
 
 log = get_logger(__name__, env=ENV)
 
