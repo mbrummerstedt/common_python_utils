@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from functools import wraps
 import time
 
-from common_python_utils.set_structlog_configs import get_logger
+from .set_structlog_configs import get_logger
 
 # ==============================================================================
 # Set variables and authenticate
