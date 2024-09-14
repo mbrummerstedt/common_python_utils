@@ -12,6 +12,9 @@ import structlog_gcp
 load_dotenv()
 GOOGLE_CLOUD_PROJECT = os.getenv("GOOGLE_CLOUD_PROJECT")
 
+if not GOOGLE_CLOUD_PROJECT:
+    print("Warning: GOOGLE_CLOUD_PROJECT environment variable is not set.")
+
 
 # Custom processor to append the calling function's name to the log entry for structlog
 def append_calling_function_name_to_log(logger, log_method, event_dict):
