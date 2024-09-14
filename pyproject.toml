@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "common_python_utils"
+version = "0.1.0"
+description = "A collection of common Python utilities"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+    {name = "Martin Brummerstedt", email = "martinbrummberstedt1@gmail.com"}
+]
+requires-python = ">=3.6"
+
+# We will inject the dependencies via the custom setup function
+dynamic = ["dependencies"]
+
+[project.urls]
+homepage = "https://github.com/mbrummerstedt/common_python_utils"
