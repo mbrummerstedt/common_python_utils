@@ -110,7 +110,7 @@ def configure_structlog_for_prod(name):
 
 # Environment-based logger factory
 def get_logger(name, env=None):
-    
+    load_dotenv()
     if env == 'prod':
         client = cloud_logging.Client(project=GOOGLE_CLOUD_PROJECT)
         client.setup_logging()
