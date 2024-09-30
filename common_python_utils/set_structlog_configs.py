@@ -8,12 +8,6 @@ from dotenv import load_dotenv
 from pythonjsonlogger import jsonlogger
 import structlog_gcp
 
-# Load environment variables from .env file
-load_dotenv()
-GOOGLE_CLOUD_PROJECT = os.getenv("GOOGLE_CLOUD_PROJECT")
-
-if not GOOGLE_CLOUD_PROJECT:
-    print("Warning: GOOGLE_CLOUD_PROJECT environment variable is not set.")
 
 
 # Custom processor to append the calling function's name to the log entry for structlog
@@ -110,7 +104,12 @@ def configure_structlog_for_prod(name):
 
 # Environment-based logger factory
 def get_logger(name, env=None):
+    # Load environment variables from .env file
     load_dotenv()
+    GOOGLE_CLOUD_PROJECT = os.getenv("GOOGLE_CLOUD_PROJECT")
+    
+    if not GOOGLE_CLOUD_PROJECT:
+        print("Warning: GOOGLE_CLOUD_PROJECT environment variable is not set.")
     if env == 'prod':
         client = cloud_logging.Client(project=GOOGLE_CLOUD_PROJECT)
         client.setup_logging()
